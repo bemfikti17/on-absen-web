@@ -2,7 +2,7 @@
 session_start(); 
 include 'config/config.php';
 
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ E_NOTICE); //ini nanti dihapus yaa kalau udah publish
 
 if(isset($_POST['login'])){
 $username=$_POST['username']; 
@@ -11,8 +11,8 @@ $query=mysql_query("select * from koordinator where username='$username' and pas
 $cek=mysql_num_rows($query);
 
     if($cek){ 
-    $_SESSION['username']=$username;
-    $gagal=$_SESSION['username'] ;
+    $_SESSION['username']=$username; //security warning hehe :)
+    $gagal=$_SESSION['username'] ; // very serious , coba baca session_start();
     header("Location: index.php");
     }else{ 
     $gagal="Anda gagal login silakan ulangi !!";

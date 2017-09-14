@@ -19,4 +19,6 @@ else {
 	header("Location: login.php");
 }
 
+//udah bagus kokk coba kamu pakai prepare yaa liat kodingan oprec atau aspirasi karena bisa di bypass hehe
+
 ?>
