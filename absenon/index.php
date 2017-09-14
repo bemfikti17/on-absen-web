@@ -58,10 +58,15 @@ include 'session.php';
 			   <img src="resource/img/bemfikti.png" width="35" height="35" class="" alt="Menu">
 			   <label style="color:#FFFFFF;">Menu</label>
 			  </a>
+
+			  <ul class="nav navbar-nav navbar-right">
+				<label style="color:#FFFFFF;">Selamat Datang, <?php echo $nm_koor ?> </label>
+			</ul>
+
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="logout.php"><button >Logout</button></a></li>
-				
 			</ul>
+			
 		</nav>
         
         <!-- Page Content -->
@@ -69,7 +74,7 @@ include 'session.php';
             <div class="container-fluid">
             	<!-- Image and text -->
 				
-                <h1>Selamat Datang, <?php echo $nm_koor ?>.</h1>
+                
             	
             </div>
         </div>
