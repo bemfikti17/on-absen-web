@@ -1,23 +1,5 @@
 <?php 
 session_start(); 
-include 'config/config.php';
-
-error_reporting(E_ALL ^ E_NOTICE); //ini nanti dihapus yaa kalau udah publish
-
-if(isset($_POST['login'])){
-$username=$_POST['username']; 
-$password=$_POST['pass']; 
-$query=mysql_query("select * from koordinator where username='$username' and password='$password'"); 
-$cek=mysql_num_rows($query);
-
-    if($cek){ 
-    $_SESSION['username']=$username; //security warning hehe :)
-    $gagal=$_SESSION['username'] ; // very serious , coba baca session_start();
-    header("Location: index.php");
-    }else{ 
-    $gagal="Anda gagal login silakan ulangi !!";
-    } 
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -131,7 +113,7 @@ $cek=mysql_num_rows($query);
    			  <img src="resource/img/bemfikti.png" alt="Logo" class="logo_bem">
  			</div> 
 
-			<form role="form" name="login" method="POST">
+			<form method="POST" action="includes/do_login.php">
  			<div class="container">
    			 <label><b>Username</b></label>
     		 <input type="text" placeholder="Enter Username" name="username" required>
@@ -139,9 +121,9 @@ $cek=mysql_num_rows($query);
    			 <label><b>Password</b></label>
    			 <input type="password" placeholder="Enter Password" name="pass" required>
 			 
-  	    	 <input type="submit" name="login" class="btn btn-lg btn-success btn-block" value="Login">
+  	    	 <input type="submit" name="submit" class="btn btn-lg btn-success btn-block" value="Login">
 
-			 <p style="color: red;"> <?php echo "$gagal"; ?> </p>
+			 <p style="color: red;"> <?php include "includes/login_error_handlers.php" ?> </p>
 			 </div>
 			
 			</form> 
